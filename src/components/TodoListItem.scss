@@ -1,0 +1,78 @@
+/* 할 일 목록의 각 항목을 스타일링하는 클래스 .TodoListItem */
+.TodoListItem {
+  /* 항목의 패딩을 1rem으로 설정하여 내용과의 간격을 조정합니다. */
+  padding: 1rem;
+
+  /* flexbox를 이용하여 요소들을 가로로 정렬합니다. */
+  display: flex;
+  align-items: center;
+
+  /* 짝수 번째 항목(.TodoListItem:nth-child(even))의 배경색을 #f8f9fa로 설정하여 줄마다 다른 배경색을 줍니다. */
+  &:nth-child(even) {
+    background: #f8f9fa;
+  }
+
+  /* 할 일 체크박스를 스타일링하는 클래스 .checkbox */
+  .checkbox {
+    /* 커서를 포인터로 설정하여 마우스를 올렸을 때 표시됨을 나타냅니다. */
+    cursor: pointer;
+
+    /* flexbox를 이용하여 요소들을 가로로 정렬합니다. */
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    /* svg 아이콘의 크기를 1.5rem으로 설정합니다. */
+    svg {
+      font-size: 1.5rem;
+    }
+
+    /* 할 일의 내용을 표시하는 클래스 .text */
+    .text {
+      /* 왼쪽 여백을 0.5rem으로 설정하여 체크박스와 내용 사이의 간격을 조정합니다. */
+      margin-left: 0.5rem;
+      /* flex: 1로 설정하여 남은 공간을 모두 차지하도록 합니다. */
+      flex: 1;
+    }
+
+    /* 체크된 할 일을 표시하는 클래스 .checked */
+    &.checked {
+      /* 체크된 상태일 때 아이콘의 색상을 #22b8cf로 설정합니다. */
+      svg {
+        color: #22b8cf;
+      }
+
+      /* 체크된 상태일 때 텍스트의 색상을 #abd5bd로 설정하고, 취소선을 추가하여 완료된 것처럼 표시합니다. */
+      .text {
+        color: #abd5bd;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  /* 할 일 항목의 삭제 버튼을 스타일링하는 클래스 .remove */
+  .remove {
+    /* flexbox를 이용하여 요소들을 가로로 정렬합니다. */
+    display: flex;
+    align-items: center;
+
+    /* 아이콘의 크기를 1.5rem으로 설정합니다. */
+    font-size: 1.5rem;
+
+    /* 삭제 버튼의 색상을 #ff6b6b으로 설정합니다. */
+    color: #ff6b6b;
+
+    /* 커서를 포인터로 설정하여 마우스를 올렸을 때 표시됨을 나타냅니다. */
+    cursor: pointer;
+
+    /* 마우스를 올렸을 때 아이콘의 색상을 #ff8787로 변경합니다. */
+    &:hover {
+      color: #ff8787;
+    }
+  }
+
+  /* 할 일 항목 사이에 1px 두께의 회색 선을 추가하여 구분합니다. */
+  & + & {
+    border-top: 1px solid #dee2e6;
+  }
+}
